@@ -21,12 +21,12 @@ const Navbar = () => {
 					</g>
 				</svg>					
 				{/* <div className="border-b w-[55%] h-0 border-pink-600 absolute self-center right-[35%] z-20"></div> */}
-				<ul className="flex pr-12 pl-24 bg-white bg-opacity-10 space-x-7 backdrop-blur-xl relative z-30">
+				<ul className="flex pr-14 pl-32 bg-white bg-opacity-10 space-x-10 backdrop-blur-xl relative z-30">
 					{routes.map((route) => (
 						<li key={route.num} className={path == route.path ? activeStyle : mainStyle}>
 							<Link to={route.path}>
-								<p className="uppercase text-sm text-white">
-									<span className="font-semibold font-barlow mr-2">
+								<p className="uppercase text-base text-white font-extralight">
+									<span className="font-semibold mr-2">
 										{route.num}
 									</span>
 									{route.name}

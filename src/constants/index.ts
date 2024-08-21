@@ -16,7 +16,7 @@ export const routes = [
 	},
 	{
 		num: "03",
-		path: "/technology",
+		path: "/tech",
 		name: "technology",
 	},
 ];
