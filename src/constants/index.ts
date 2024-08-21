@@ -1,23 +1,22 @@
-import { useMemo } from "react";
-
-export const navRoutes = () => {
-	const routes = useMemo(() => [
-		{
-			num: '00',
-			path: "/",
-		},
-		{
-			num: '01',
-			path: "/destination",
-		},
-		{
-			num: '02',
-			path: "/crew",
-		},
-		{
-			num: '03',
-			path: "/technology",
-		},
-	]);
-	return routes;
-};
+export const routes = [
+	{
+		num: "00",
+		path: "/",
+		name: "home",
+	},
+	{
+		num: "01",
+		path: "/destination",
+		name: "destination",
+	},
+	{
+		num: "02",
+		path: "/crew",
+		name: "crew",
+	},
+	{
+		num: "03",
+		path: "/technology",
+		name: "technology",
+	},
+];

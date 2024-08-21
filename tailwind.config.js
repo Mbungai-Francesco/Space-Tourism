@@ -14,6 +14,7 @@ export default {
       },
       fontFamily: {
         'belle': ['Bellefair', 'sans-serif'],
+        'barlow': ['Barlow Condensed', 'sans-serif'],
       },
       fontSize: {
         'xxs': '.625rem',
