@@ -1,25 +1,75 @@
 import { useState } from "react";
 import Navbar from "../components/shared/navbar";
-import { Destination as destType } from "../types";
 import { data } from "../constants/data";
 
 const Destination = () => {
-	const [destinations, setDestinations] = useState<destType[]>(data.destinations);
+	const destinations = data.destinations;
+	const [destNum, setDestNum] = useState(0);
+
+	const mainStyle =
+		"border-b-[3px] hover:border-white pb-2 border-transparent cursor-pointer";
+	const activeStyle = "border-b-[3px] border-white pb-2 cursor-pointer";
 
 	// useEffect(() => {
 	// 	console.log(data.destinations);
-    
+
 	// }, []);
 
 	return (
 		<div className="h-screen  bg-[url(./assets/destination/background-destination-desktop.jpg)] bg-cover">
 			<Navbar />
-			<div>
-				<p>
-					<span>01</span> Pick your destination
+			<div className="px-32 p-10">
+				<p
+					className="text-2xl uppercase tracking-widest"
+					style={{ wordSpacing: "0.3em" }}
+				>
+					<span className="text-myBLue-100 font-bold opacity-40">01</span> Pick
+					your destination
 				</p>
-				<div>
-					<img src="" alt="" />
+				<div className="flex p-20 justify-between">
+					<div>
+						<div>
+							<img src={destinations[destNum].images.png} alt="" />
+						</div>
+					</div>
+					<div className="w-2/5">
+						<ul className="flex w-3/5 justify-between space-x-10">
+							{destinations.map((dest, index) => (
+								<li
+									key={dest.name}
+									className={destNum == index ? activeStyle : mainStyle}
+									onClick={() => setDestNum(index)}
+								>
+									<p className="font-extralight uppercase tracking-widest">
+										{dest.name}
+									</p>
+								</li>
+							))}
+						</ul>
+						<div>
+							<p className="text-7xl font-belle uppercase my-10">
+								{destinations[destNum].name}
+							</p>
+							<p className="font-extralight text-xl">
+								{destinations[destNum].description}
+							</p>
+							<hr className="opacity-35 my-8" />
+							<div className="flex w-4/5 justify-between font-extralight">
+								<div>
+									<p>AVG. DISTANCE</p>
+									<p className="font-belle text-2xl uppercase font-extralight">
+										{destinations[destNum].distance}
+									</p>
+								</div>
+								<div>
+									<p>EST. TRAVEL TIME</p>
+									<p className="font-belle text-2xl uppercase font-extralight">
+										{destinations[destNum].travel}
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
