@@ -5,6 +5,8 @@ import { data } from "../constants/data";
 const Tech = () => {
 	const techs = data.technology;
 	const [techsNum, setTechsNum] = useState(0);
+  console.log(techs);
+  
 
 	const mainStyle = "aspect-square rounded-full border w-20 items-center flex justify-center cursor-pointer font-belle text-3xl";
 	const activeStyle = "aspect-square rounded-full border w-20 items-center flex justify-center cursor-pointer font-belle text-3xl bg-white text-black";
