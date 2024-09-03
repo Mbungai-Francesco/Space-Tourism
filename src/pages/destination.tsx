@@ -2,6 +2,11 @@ import { useState } from "react";
 import Navbar from "../components/shared/navbar";
 import { data } from "../constants/data";
 
+import moon  from '../assets/destination/image-moon.png';
+import europa  from '../assets/destination/image-europa.png';
+import titan  from '../assets/destination/image-titan.png';
+import mars  from '../assets/destination/image-mars.png';
+
 const Destination = () => {
 	const destinations = data.destinations;
 	const [destNum, setDestNum] = useState(0);
@@ -10,10 +15,20 @@ const Destination = () => {
 		"border-b-[3px] hover:border-white pb-2 border-transparent cursor-pointer";
 	const activeStyle = "border-b-[3px] border-white pb-2 cursor-pointer";
 
-	// useEffect(() => {
-	// 	console.log(data.destinations);
-
-	// }, []);
+	const getImage = (name : string) => {
+    switch (name) {
+      case "Moon":
+        return moon;
+      case "Mars":
+        return mars;
+      case "Europa":
+        return europa;
+      case "Titan":
+        return titan;
+      default:
+        return moon;
+    }
+  };
 
 	return (
 		<div className="h-screen  bg-[url(./assets/destination/background-destination-desktop.jpg)] bg-cover">
@@ -29,7 +44,8 @@ const Destination = () => {
 				<div className="flex p-20 justify-between">
 					<div>
 						<div>
-							<img src={destinations[destNum].images.png} alt="" />
+							{/* <img src={destinations[destNum].images.png} alt="" /> */}
+							<img src={getImage(destinations[destNum].name)} alt="" />
 						</div>
 					</div>
 					<div className="w-2/5">
