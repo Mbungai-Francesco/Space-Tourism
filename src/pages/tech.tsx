@@ -2,6 +2,11 @@ import { useState } from "react";
 import Navbar from "../components/shared/navbar";
 import { data } from "../constants/data";
 
+import launch from "../assets/technology/image-launch-vehicle-portrait.jpg"
+import spaceport from "../assets/technology/image-spaceport-portrait.jpg"
+import capsule from "../assets/technology/image-space-capsule-portrait.jpg"
+
+
 const Tech = () => {
 	const techs = data.technology;
 	const [techsNum, setTechsNum] = useState(0);
@@ -10,6 +15,19 @@ const Tech = () => {
 
 	const mainStyle = "aspect-square rounded-full border w-20 items-center flex justify-center cursor-pointer font-belle text-3xl";
 	const activeStyle = "aspect-square rounded-full border w-20 items-center flex justify-center cursor-pointer font-belle text-3xl bg-white text-black";
+
+	const getImage = (name : string) => {
+    switch (name) {
+      case "Launch vehicle":
+				return launch;
+			case "Spaceport":
+				return spaceport;
+			case "Space capsule":
+				return capsule;
+			default:
+				return launch;
+    }
+  };
 
 	return (
 		<div className="h-screen  bg-[url(./assets/technology/background-technology-desktop.jpg)] bg-cover overflow-y-scroll">
@@ -45,7 +63,7 @@ const Tech = () => {
 						</div>
 					</div>
 					<div>
-						<img src={techs[techsNum].images.portrait} alt="" />
+						<img src={getImage(techs[techsNum].name)} alt="" />
 					</div>
 				</div>
 			</div>

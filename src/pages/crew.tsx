@@ -2,12 +2,32 @@ import { useState } from "react";
 import Navbar from "../components/shared/navbar";
 import { data } from "../constants/data";
 
+import douglas from "../assets/crew/image-douglas-hurley.png";
+import anousheh from "../assets/crew/image-anousheh-ansari.png";
+import mark from "../assets/crew/image-mark-shuttleworth.png";
+import victor from "../assets/crew/image-victor-glover.png";
+
 const Crew = () => {
 	const crews = data.crew;
 	const [crewNum, setCrewNum] = useState(0);
 
-	const mainStyle = "aspect-square w-4 rounded-full bg-white opacity-30";
+	const mainStyle = "aspect-square w-4 rounded-full bg-white opacity-30 cursor-pointer";
 	const activeStyle = "aspect-square w-4 rounded-full bg-white";
+
+	const getImage = (name : string) => {
+    switch (name) {
+      case "Douglas Hurley":
+        return douglas;
+			case "Mark Shuttleworth":
+				return mark;
+			case "Victor Glover":
+				return victor;
+			case "Anousheh Ansari":
+				return anousheh;
+			default:
+				return douglas;
+    }
+  };
 
 	return (
 		<div className="h-screen bg-[url(./assets/destination/background-destination-desktop.jpg)] bg-cover overflow-y-scroll">
@@ -41,7 +61,7 @@ const Crew = () => {
 						</div>
 					</div>
 					<div>
-						<img src={crews[crewNum].images.png} alt="" />
+						<img src={getImage(crews[crewNum].name)} alt="" />
 					</div>
 				</div>
 			</div>
